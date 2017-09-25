@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<head>
+<title>Edit nutrition table entry</title>
+</head>
+
+<body>
+
+	<h:form>
+		<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+			<h:outputLabel for="dateField" value="Datum" />
+			<h:inputText id="dateField" value="#{editNutritionController.date}" />
+
+			<h:outputLabel for="timeField" value="Zeit" />
+			<h:inputText id="timeField" value="#{editNutritionController.time}" />
+
+			<h:outputLabel for="foodSelect" value="Food" />
+			<h:selectOneMenu id="foodSelect"
+				value="#{editNutritionController.foodStr}" >
+				<f:selectItems value="#{editNutritionController.allFoods}"
+					var="food" itemLabel="#{food.name}" itemValue="#{food.name}" />
+			</h:selectOneMenu>
+
+			<h:outputLabel for="amountField" value="Menge" />
+			<h:inputText id="amountField"
+				value="#{editNutritionController.amount}" />
+
+			<h:outputLabel for="unitSelect" value="Einheit" />
+			<h:selectOneMenu id="unitSelect"
+				value="#{editNutritionController.amountUnitStr}">
+				<f:selectItems value="#{editNutritionController.amountUnits}"
+					var="unit" itemLabel="#{unit.label}" itemValue="#{unit}" />
+			</h:selectOneMenu>
+
+			<h:commandButton rendered="#{editNutritionController.createMode}"
+				value="Hinzufügen"
+				action="#{editNutritionController.createNutritionEntry}" />
+			<h:commandButton rendered="#{!editNutritionController.createMode}"
+				value="Speichern"
+				action="#{editNutritionController.updateNutritionEntry}" />
+			<h:commandButton 
+				value="Abbruch"
+				action="home" />
+
+		</h:panelGrid>
+	</h:form>
+
+</body>
+</html>

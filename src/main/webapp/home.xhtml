@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml"
+	xmlns:h = "http://java.sun.com/jsf/html"
+	xmlns:f = "http://java.sun.com/jsf/core" >
+
+   <head>
+      <title>Nutrition list</title>
+   </head>
+
+   <body>
+      #{helloworldBean.getMessage()}
+      <br></br>
+		<h:form>
+			<h:commandButton
+	      		action="#{editNutritionController.route2Create}"
+	      		value="Eintrag hinzufügen..."  >
+			</h:commandButton>
+		</h:form>
+
+	<h:dataTable value = "#{helloworldBean.nutritionDataByDate}"
+			var = "dayGroup"
+			border = "1"
+			styleClass = "nutriTable"
+			headerClass = "nutriTableHeader"
+			rowClasses = "nutriTableOddRow, nutriTableEvenRow">
+
+		<h:column>
+			<f:facet name = "header">Date</f:facet>
+			<h:outputText value="#{dayGroup.date}">
+				<f:convertDateTime locale="de" style="short" />
+			</h:outputText>
+		</h:column>
+   
+		<h:column>
+			<f:facet name = "header">Rows</f:facet>
+			<h:dataTable value = "#{dayGroup.nutritionData}"
+					var = "nutriOfDay"
+					border = "0"
+					width="100%"
+					styleClass = "nutriTable"
+					headerClass = "nutriTableHeader"
+					rowClasses = "nutriTableOddRow, nutriTableEvenRow">
+
+				<h:column>
+					<f:facet name = "header">Uhrzeit</f:facet>
+					<h:outputText value="#{nutriOfDay.ts}">
+						<f:convertDateTime pattern="HH:mm" />
+					</h:outputText>
+				</h:column>
+   
+				<h:column>    				
+					<f:facet name = "header">Food</f:facet>    				
+					#{nutriOfDay.food.name}
+				</h:column>
+   
+				<h:column>
+					<f:facet name = "header">Grams</f:facet>
+					<h:outputText value="#{nutriOfDay.grams}" >
+						<f:convertNumber />
+					</h:outputText>
+				</h:column>
+
+				<h:column>
+					<f:facet name = "header">kCal</f:facet>
+					<h:outputText value="#{nutriOfDay.kcal}" >
+						<f:convertNumber />
+					</h:outputText>
+				</h:column>
+
+			</h:dataTable>
+			<h:outputText value="Summe kCal: #{dayGroup.sumKcal}" />
+		</h:column>
+   
+	</h:dataTable>
+
+   
+
+	<h:dataTable value = "#{helloworldBean.nutritionData}"
+			var = "nutri"
+			border = "1"
+			styleClass = "nutriTable"
+			headerClass = "nutriTableHeader"
+			rowClasses = "nutriTableOddRow, nutriTableEvenRow">
+   
+		<h:column>
+			<f:facet name = "header">Timestamp</f:facet>
+			<h:outputText value="#{nutri.ts}">
+				<f:convertDateTime locale="de" pattern="yyyy-MM-dd HH:mm"/>
+			</h:outputText>
+		</h:column>
+   
+		<h:column>    				
+			<f:facet name = "header">Food</f:facet>    				
+			#{nutri.food.name}
+		</h:column>
+   
+		<h:column>
+			<f:facet name = "header">Grams</f:facet>
+			<h:outputText value="#{nutri.grams}" >
+				<f:convertNumber />
+			</h:outputText>
+		</h:column>
+
+		<h:column>
+			<f:facet name = "header">kCal</f:facet>
+			<h:outputText value="#{nutri.kcal}" >
+				<f:convertNumber />
+			</h:outputText>
+		</h:column>
+
+	</h:dataTable>
+
+   </body>
+</html>

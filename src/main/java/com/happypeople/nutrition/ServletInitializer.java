@@ -26,8 +26,7 @@ public class ServletInitializer extends SpringBootServletInitializer {
     @Bean
     public ServletRegistrationBean servletRegistrationBean() {
         final FacesServlet servlet = new FacesServlet();
-// TODO add more path mappings, like defined in webl.xml
-        return new ServletRegistrationBean(servlet, "*.jsf");
+        return new ServletRegistrationBean(servlet, "*.jsf", "*.faces", "*.xhtml", "faces/*");
     }
     @Bean
     public FilterRegistrationBean rewriteFilter() {
