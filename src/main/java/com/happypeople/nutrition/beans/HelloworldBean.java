@@ -1,4 +1,4 @@
-package com.happypeople.jsftutorial.beans;
+package com.happypeople.nutrition.beans;
 
 import java.io.Serializable;
 import java.text.ParseException;
@@ -10,18 +10,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
-import com.happypeople.nutrition.model.NutritionListEntry;
-import com.happypeople.persistence.DataRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-@ManagedBean(name="helloworldBean")
+import com.happypeople.nutrition.model.NutritionListEntry;
+import com.happypeople.nutrition.persistence.DataRepository;
+
+@Component(value="helloworldBean")
+//@ManagedBean(name="helloworldBean")
 @SessionScoped
 public class HelloworldBean implements Serializable {
+	private static final long serialVersionUID = 1L;
 
-	@ManagedProperty(value = "#{dataRepository}")
+	//@ManagedProperty(value = "#{dataRepository}")
+	@Autowired
 	private DataRepository dataRepository;
 
 	public void setDataRepository(final DataRepository dataRepository) {

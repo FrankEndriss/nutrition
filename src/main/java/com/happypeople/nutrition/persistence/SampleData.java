@@ -1,4 +1,4 @@
-package com.happypeople.persistence;
+package com.happypeople.nutrition.persistence;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -8,8 +8,8 @@ import java.util.List;
 
 import com.happypeople.nutrition.model.Food;
 import com.happypeople.nutrition.model.FoodAmount;
-import com.happypeople.nutrition.model.NutritionListEntry;
 import com.happypeople.nutrition.model.FoodAmount.FoodUnit;
+import com.happypeople.nutrition.model.NutritionListEntry;
 
 /** Some sample data for testing. */
 class SampleData {
@@ -24,14 +24,14 @@ class SampleData {
 	public final List<Food> foods=mkList(
 			mkFood("Milch 1,5%", 46, 1.5, 4.7, 3.4),
 			mkFood("Joghurt 0,1%", 39, 0.1, 5.4, 4.2),
-			mkFood("Körniger Frischkäse 0,4%", 72, 0.4, 4.0, 12.7),
-			mkFood("Kräuterquark 2,4%", 75, 2.4, 4.0, 8.8),
-			mkFood("Kräuterquark 40%", 141, 10.1, 3.6, 8.5),
-			mkFood("Basismüsli 5-Korn-Mix", 366, 7.6, 56.0, 12.0),
-			mkFood("Knuspermüsli Granola", 446, 15.5, 63.5, 9.6),
+			mkFood("KÃ¶rniger FrischkÃ¤se 0,4%", 72, 0.4, 4.0, 12.7),
+			mkFood("KrÃ¤uterquark 2,4%", 75, 2.4, 4.0, 8.8),
+			mkFood("KrÃ¤uterquark 40%", 141, 10.1, 3.6, 8.5),
+			mkFood("BasismÃ¼sli 5-Korn-Mix", 366, 7.6, 56.0, 12.0),
+			mkFood("KnuspermÃ¼sli Granola", 446, 15.5, 63.5, 9.6),
 			mkFood("Thunfisch", 118, 1.5, 0.0, 26.0),
 			mkFood("Rosinen", 320, 0.5, 73.0, 2.8),
-			mkFood("Öl Raps", 900, 100.0, 0.0, 0.0),
+			mkFood("Ã–l Raps", 900, 100.0, 0.0, 0.0),
 			mkFood("Energy Cake Joghurt", 448, 19.7, 58.2, 6.4),
 			mkFood("Energy Cake Original", 437, 18.7, 58.0, 6.4),
 			mkFood("Energy Cake Toffee", 444, 18.4, 62.9, 5.7)

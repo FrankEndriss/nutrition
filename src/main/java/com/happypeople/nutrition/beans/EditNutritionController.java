@@ -1,4 +1,4 @@
-package com.happypeople.jsftutorial.beans;
+package com.happypeople.nutrition.beans;
 
 import java.io.Serializable;
 import java.text.DateFormat;
@@ -8,21 +8,23 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.happypeople.nutrition.model.Food;
 import com.happypeople.nutrition.model.FoodAmount;
 import com.happypeople.nutrition.model.FoodAmount.FoodUnit;
 import com.happypeople.nutrition.model.NutritionListEntry;
-import com.happypeople.persistence.DataRepository;
+import com.happypeople.nutrition.persistence.DataRepository;
 
-@ManagedBean(name="editNutritionController")
-@SessionScoped
+@Component(value="editNutritionController")
+//@ManagedBean(name="editNutritionController")
+//@SessionScoped
 public class EditNutritionController implements Serializable {
+	private static final long serialVersionUID = 1L;
 
-	@ManagedProperty(value="#{dataRepository}")
+	//@ManagedProperty(value="#{dataRepository}")
+	@Autowired
 	private DataRepository dataRepository;
 
 	public void setDataRepository(final DataRepository dataRepository) {

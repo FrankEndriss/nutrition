@@ -1,13 +1,11 @@
-package com.happypeople.persistence;
+package com.happypeople.nutrition.persistence;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
+import org.springframework.stereotype.Component;
 
 import com.happypeople.nutrition.model.Food;
 import com.happypeople.nutrition.model.FoodAmount.FoodUnit;
@@ -15,10 +13,10 @@ import com.happypeople.nutrition.model.NutritionListEntry;
 
 /** Simple persistence/datastore interface/implementation.
  */
-@ManagedBean(name="dataRepository")
-@ApplicationScoped
-public class DataRepository implements Serializable {
-
+@Component(value="dataRepository")
+//@ManagedBean(name="dataRepository")
+//@ApplicationScoped
+public class DataRepository {
 	/** SampleData for testing. */
 	private final SampleData sampleData=new SampleData();
 
