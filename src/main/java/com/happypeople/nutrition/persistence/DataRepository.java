@@ -2,10 +2,9 @@ package com.happypeople.nutrition.persistence;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
-
-import org.springframework.stereotype.Component;
 
 import com.happypeople.nutrition.model.Food;
 import com.happypeople.nutrition.model.FoodAmount.FoodUnit;
@@ -13,20 +12,29 @@ import com.happypeople.nutrition.model.NutritionListEntry;
 
 /** Simple persistence/datastore interface/implementation.
  */
-@Component(value="dataRepository")
+//@Component(value="dataRepository")
 //@ManagedBean(name="dataRepository")
 //@ApplicationScoped
 public class DataRepository {
 	/** SampleData for testing. */
 	private final SampleData sampleData=new SampleData();
 
+	private final static Comparator<Food> foodNameComparator=new Comparator<Food>() {
+		@Override
+		public int compare(final Food o1, final Food o2) {
+			return o1.getName().compareTo(o2.getName());
+		}
+	};
+
 	public List<FoodUnit> getAmountUnits() {
 		return Arrays.asList(FoodUnit.values());
 	}
 
+	/** @return All existing foods, sorted by name. */
 	public List<Food> getFoods() {
 		final List<Food> ret=new ArrayList<Food>();
 		ret.addAll(sampleData.foods);
+		ret.sort(foodNameComparator);
 		return ret;
 	}
 

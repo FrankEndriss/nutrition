@@ -10,17 +10,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.faces.bean.SessionScoped;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import com.happypeople.nutrition.model.NutritionListEntry;
 import com.happypeople.nutrition.persistence.DataRepository;
 
-@Component(value="helloworldBean")
+//@Component(value="helloworldBean")
 //@ManagedBean(name="helloworldBean")
-@SessionScoped
+//@SessionScoped
 public class HelloworldBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 

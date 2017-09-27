@@ -9,7 +9,6 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import com.happypeople.nutrition.model.Food;
 import com.happypeople.nutrition.model.FoodAmount;
@@ -17,7 +16,7 @@ import com.happypeople.nutrition.model.FoodAmount.FoodUnit;
 import com.happypeople.nutrition.model.NutritionListEntry;
 import com.happypeople.nutrition.persistence.DataRepository;
 
-@Component(value="editNutritionController")
+//@Component(value="editNutritionController")
 //@ManagedBean(name="editNutritionController")
 //@SessionScoped
 public class EditNutritionController implements Serializable {

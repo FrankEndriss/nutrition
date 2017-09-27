@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<head>
+<title>Edit foods table entry</title>
+</head>
+
+<body>
+
+	<h:form>
+		<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+			<h:outputLabel for="nameField" value="Name" />
+			<h:inputText id="nameField" value="#{editFoodController.name}" />
+
+			<h:outputLabel for="kCalField" value="kCal/100g" />
+			<h:inputText id="kCalField" value="#{editFoodController.kcal}" />
+
+			<h:outputLabel for="fatPer100" value="Fett pro 100g" />
+			<h:inputText id="fatPer100" value="#{editFoodController.fatPer100}" />
+
+			<h:outputLabel for="carboPer100" value="Kohlehydrate pro 100g" />
+			<h:inputText id="carboPer100" value="#{editFoodController.carboPer100}" />
+
+			<h:outputLabel for="sugarPer100" value="davon Zucker pro 100g" />
+			<h:inputText id="sugarPer100" value="#{editFoodController.sugarPer100}" />
+
+			<h:outputLabel for="proteinPer100" value="Protein pro 100g" />
+			<h:inputText id="proteinPer100" value="#{editFoodController.proteinPer100}" />
+
+			<h:commandButton rendered="#{editFoodController.createMode}"
+				value="Hinzufügen"
+				action="#{editFoodController.createFood}" />
+			<h:commandButton rendered="#{!editFoodController.createMode}"
+				value="Speichern"
+				action="#{editFoodController.updateFood}" />
+			<h:commandButton 
+				value="Abbruch"
+				action="home" />
+
+		</h:panelGrid>
+	</h:form>
+
+</body>
+</html>
