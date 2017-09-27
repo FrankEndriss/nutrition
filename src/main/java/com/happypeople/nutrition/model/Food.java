@@ -1,48 +1,50 @@
 package com.happypeople.nutrition.model;
 
 /** Immutable data class representing foods and ingredients.
- * Ingredients are categorized as fat, carbohydrates and proteins.
+ * Ingredients are categorized as fat, carbohydrates, sugar and proteins.
+ * Sugar is interpreted as part of carbohydrates.
  */
 public class Food {
 
     private final String name;
+    private final int kCalPer100g;
+    private final double fatPer100g;
+    private final double carboPer100g;
+    private final double sugarPer100g;
+    private final double proteinPer100g;
 
-    private final double kcalPer100gFat;
-    private final double kcalPer100gCarbo;
-    private final double kcalPer100gProtein;
-
-    public Food(final String name, final double kcalPer100gFat, final double kcalPer100gCarbo, final double kcalPer100gProtein) {
+    public Food(final String name, final int kCalPer100g, final double fatPer100g, final double carboPer100g, final double sugarPer100g, final double proteinPer100g) {
         this.name=name;
-        this.kcalPer100gFat=kcalPer100gFat;
-        this.kcalPer100gCarbo=kcalPer100gCarbo;
-        this.kcalPer100gProtein=kcalPer100gProtein;
+        this.kCalPer100g=kCalPer100g;
+        this.fatPer100g=fatPer100g;
+        this.carboPer100g=carboPer100g;
+        this.sugarPer100g=sugarPer100g;
+        this.proteinPer100g=proteinPer100g;
     }
 
-    /** @return Name of this food. */
+    /** @return Name of this food, acts as ID. */
     public String getName() {
         return name;
     }
 
-    /** @return The rounded kCal per 100g value, calculated as the
-     * sum of the other three values.
-     */
+    /** @return The kCal per 100g value. */
     public int getKcalPer100g() {
-    	// round to int
-    	return (int)((kcalPer100gFat+kcalPer100gCarbo+kcalPer100gProtein)+.5);
+    	return kCalPer100g;
     }
 
-    /** @return How much per cent of the calories of this food are carbohydrates? */
-    public double getKcalPer100gCarbo() {
-        return kcalPer100gCarbo;
-    }
+	public double getFatPer100g() {
+		return fatPer100g;
+	}
 
-    /** @return How much per cent of the calories of this food is fat? */
-    public double getKcalPer100gFat() {
-        return kcalPer100gFat;
-    }
+	public double getCarboPer100g() {
+		return carboPer100g;
+	}
 
-    /** @return How much per cent of the calories of this food is protein? */
-    public double getKcalPer100gProtein() {
-        return kcalPer100gProtein;
-    }
+	public double getSugarPer100g() {
+		return sugarPer100g;
+	}
+
+	public double getProteinPer100g() {
+		return proteinPer100g;
+	}
 }

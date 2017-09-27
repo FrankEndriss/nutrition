@@ -22,19 +22,19 @@ class SampleData {
 	}
 
 	public final List<Food> foods=mkList(
-			mkFood("Milch 1,5%", 46, 1.5, 4.7, 3.4),
-			mkFood("Joghurt 0,1%", 39, 0.1, 5.4, 4.2),
-			mkFood("Körniger Frischkäse 0,4%", 72, 0.4, 4.0, 12.7),
-			mkFood("Kräuterquark 2,4%", 75, 2.4, 4.0, 8.8),
-			mkFood("Kräuterquark 40%", 141, 10.1, 3.6, 8.5),
-			mkFood("Basismüsli 5-Korn-Mix", 366, 7.6, 56.0, 12.0),
-			mkFood("Knuspermüsli Granola", 446, 15.5, 63.5, 9.6),
-			mkFood("Thunfisch", 118, 1.5, 0.0, 26.0),
-			mkFood("Rosinen", 320, 0.5, 73.0, 2.8),
-			mkFood("Öl Raps", 900, 100.0, 0.0, 0.0),
-			mkFood("Energy Cake Joghurt", 448, 19.7, 58.2, 6.4),
-			mkFood("Energy Cake Original", 437, 18.7, 58.0, 6.4),
-			mkFood("Energy Cake Toffee", 444, 18.4, 62.9, 5.7)
+			mkFood("Milch 1,5%", 46, 1.5, 4.7, 4.7, 3.4),
+			mkFood("Joghurt 0,1%", 39, 0.1, 5.4, 4.8, 4.2),
+			mkFood("Körniger Frischkäse 0,4%", 72, 0.4, 4.0, 3.8, 12.7),
+			mkFood("Kräuterquark 2,4%", 75, 2.4, 4.0, 3.8, 8.8),
+			mkFood("Kräuterquark 40%", 141, 10.1, 3.6, 2.5, 8.5),
+			mkFood("Basismüsli 5-Korn-Mix", 366, 7.6, 56.0, 8.0, 12.0),
+			mkFood("Knuspermüsli Granola", 446, 15.5, 63.5, 38.0, 9.6),
+			mkFood("Thunfisch", 118, 1.5, 0.0, 0.0, 26.0),
+			mkFood("Rosinen", 320, 0.5, 73.0, 54.0, 2.8),
+			mkFood("Öl Raps", 900, 100.0, 0.0, 0.0, 0.0),
+			mkFood("Energy Cake Joghurt", 448, 19.7, 58.2, 26.0, 6.4),
+			mkFood("Energy Cake Original", 437, 18.7, 58.0, 26.0, 6.4),
+			mkFood("Energy Cake Toffee", 444, 18.4, 62.9, 26.0, 5.7)
 	);
 
 	static SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -63,7 +63,10 @@ class SampleData {
 	}
 
 	private static Food mkFood(final String name, final int kcalPer100g,
-			final double fatGrams, final double carboGrams, final double proteinGrams) {
+			final double fatGrams, final double carboGrams, final double sugarGrams, final double proteinGrams) {
+
+		return new Food(name, kcalPer100g, fatGrams, carboGrams, sugarGrams, proteinGrams);
+		/*
 		final double kCalFat=930*fatGrams;
 		final double kCalCarbo=410*carboGrams;
 		final double kCalProtein=410*proteinGrams;
@@ -76,5 +79,6 @@ class SampleData {
 				kCalFat*multiplikator,
 				kCalCarbo*multiplikator,
 				kCalProtein*multiplikator);
+				*/
 	}
 }

@@ -47,7 +47,7 @@ public class DataRepository {
 	}
 
 	public void createFood(final Food food) {
-		throw new RuntimeException("not implemented yet");
+		sampleData.foods.add(food);
 	}
 
 	public void updateFood(final Food food) {

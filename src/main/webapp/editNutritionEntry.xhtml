@@ -21,11 +21,16 @@
 			<h:inputText id="timeField" value="#{editNutritionController.time}" />
 
 			<h:outputLabel for="foodSelect" value="Food" />
+			<h:panelGrid columns="2">
 			<h:selectOneMenu id="foodSelect"
 				value="#{editNutritionController.foodStr}" >
 				<f:selectItems value="#{editNutritionController.allFoods}"
 					var="food" itemLabel="#{food.name}" itemValue="#{food.name}" />
 			</h:selectOneMenu>
+			<h:commandButton 
+				value="Neu..."
+				action="#{editFoodController.route2CreateFood}" />
+			</h:panelGrid>
 
 			<h:outputLabel for="amountField" value="Menge" />
 			<h:inputText id="amountField"
